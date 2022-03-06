@@ -12,6 +12,16 @@ import warnings
 import json
 warnings.filterwarnings('ignore')
 
+def dropdown_handler(driver, xpath: str):
+    """
+    点击带有滚动条的菜单
+    ref: https://stackoverflow.com/questions/57303355
+    """
+    wait = WebDriverWait(driver, 10)
+    ele = wait.until(EC.visibility_of_element_located((By.XPATH, xpath)))
+    ele.location_once_scrolled_into_view
+    ele.click()
+    time.sleep(0.1)
 
 def login(driver, userName, password, retry=0):
     if retry == 3:
@@ -108,10 +118,7 @@ def write_reason(driver, reason):
     
 def select_destination(driver, destination):
     driver.find_elements_by_class_name('el-select')[3].click()
-    WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located(
-            (By.XPATH, f'//li/span[text()="{destination}"]')))
-    driver.find_element_by_xpath(f'//li/span[text()="{destination}"]').click()
+    dropdown_handler(driver, f'//li/span[text()="{destination}"]'
 
 
 def select_district(driver, district):
