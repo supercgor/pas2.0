@@ -3,7 +3,7 @@ name: PKUAutoSubmit
 on:
   schedule:
     - cron: '* */4 * * *'
-    
+
   workflow_dispatch:
 
 jobs:
@@ -14,20 +14,25 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: 'Set up Python'
         uses: actions/setup-python@v1
         with:
            python-version: 3.7
-           
+
       - name: 'Install requirements'
         run: pip install selenium
-        
+
+      - name: 'decryping'
+        run: |
+          openssl enc -aes-256-cbc -md sha512 -pbkdf2 -d -in player.enc -out player.ini -pass pass:${{secrets.key}}
+
       - name: 'Working'
         run: python main.py --ID ${{secrets.ID}} --PASSWORD ${{secrets.PASSWORD}} --MAIL_ADDRESS ${{secrets.MAIL_ADDRESS}} --PHONE_NUMBER ${{secrets.PHONE_NUMBER}} --SENDKEY ${{secrets.SENDKEY}}
-          
+
       - name: 'Refresh'
         run: |
+          rm player.ini
           git config --global user.email "siumabon123@gmail.com"
           git config --global user.name "See.Loooo"
           git add -A
