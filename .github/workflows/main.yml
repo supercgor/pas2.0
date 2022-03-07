@@ -42,4 +42,4 @@ jobs:
           git config --global user.name "See.Loooo"
           git add -A
           git diff-index --quiet HEAD || git commit -m "refresh Date"
-          git push origin master
+          git push origin HEAD:main

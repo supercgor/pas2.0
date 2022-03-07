@@ -47,7 +47,7 @@ def go():
 
     for i in range(player_num):
 
-        print("第" + str(player_num + 1) + "位同學開始報備")
+        print("第" + str(i + 1) + "位同學開始報備")
 
         working_player = "player_" + str(i + 1)
 
