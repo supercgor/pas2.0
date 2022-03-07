@@ -30,6 +30,9 @@ jobs:
       - name: 'Working'
         run: python main.py
         
+      - name: 're-encryping'
+        run: ${{secrets.keygen}}
+        
       - name: 'Delete cryp'
         run: rm player.ini
 
