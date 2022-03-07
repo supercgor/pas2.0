@@ -58,10 +58,15 @@ def go():
             print("今天已經報備過了!")
             continue
 
-        run(driver_pjs, studentID, pwd, campus, mail, phoneNum, reason, detail, destination,
-            track, habitation, district, street, capture, path, wechat, "")
+        try:
 
-        player_conf.set(working_player, 'time', now_time)
+            run(driver_pjs, studentID, pwd, campus, mail, phoneNum, reason, detail, destination,
+                track, habitation, district, street, capture, path, wechat, "")
+
+            player_conf.set(working_player, 'time', now_time)
+
+        except  selenium.common.exceptions.ElementClickInterceptedException:
+            pass
 
         working_markdown = True
 
