@@ -32,7 +32,7 @@ def go():
     conf.read("config.ini", encoding='utf8')
     now_time = str(strftime("%Y-%m-%d", localtime()))
 
-    campus = conf['common']['campus']
+    #campus = conf['common']['campus']
 
     habitation, district, street = dict(conf['in']).values()
 
@@ -51,7 +51,8 @@ def go():
 
         working_player = "player_" + str(i + 1)
 
-        studentID, mail, pwd, phoneNum, before_time, reason, detail, track = dict(player_conf[working_player]).values()
+        studentID, mail, pwd, phoneNum, before_time, reason, detail, track = dict(
+            player_conf[working_player]).values()
 
         if before_time == now_time:
             print("今天已經報備過了!")
@@ -75,6 +76,11 @@ if __name__ == '__main__':
         options=chrome_options,
         executable_path='/usr/bin/chromedriver',
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
+
+    # chrome_options = Options()
+    # chrome_options.add_argument("--headless")
+    # chrome_options.binary_location = r"C:\Program Files(x86)\Google\Chrome\Application\chrome.exe"
+    # driver_pjs = webdriver.Chrome(executable_path="D:\github\pas2.0\chromedriver.exe")
 
     print('Driver Launched\n')
 
