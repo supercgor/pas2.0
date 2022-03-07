@@ -5,6 +5,7 @@ import warnings
 from configparser import ConfigParser
 from time import localtime, strftime
 
+from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.chrome.options import Options
 
 from func import *
@@ -65,7 +66,7 @@ def go():
 
             player_conf.set(working_player, 'time', now_time)
 
-        except  selenium.common.exceptions.ElementClickInterceptedException:
+        except  ElementClickInterceptedException:
             pass
 
         working_markdown = True
