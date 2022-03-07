@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -548,4 +547,3 @@ def run(driver, userName, password, campus, mail_address, phone_number, reason, 
 
 if __name__ == '__main__':
     pass
->>>>>>> 80f38857efb4d3add9d47f90dfd2cc33d042fa3b
