@@ -32,7 +32,7 @@ def go():
     conf.read("config.ini", encoding='utf8')
     now_time = str(strftime("%Y-%m-%d", localtime()))
 
-    #campus = conf['common']['campus']
+    campus = conf['common']['campus']
 
     habitation, district, street = dict(conf['in']).values()
 
