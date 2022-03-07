@@ -29,10 +29,12 @@ jobs:
 
       - name: 'Working'
         run: python main.py
+        
+      - name: 'Delete cryp'
+        run: rm config.ini
 
       - name: 'Refresh'
         run: |
-          rm player.ini
           git config --global user.email "siumabon123@gmail.com"
           git config --global user.name "See.Loooo"
           git add -A
