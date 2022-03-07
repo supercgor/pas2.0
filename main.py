@@ -56,6 +56,7 @@ def go():
 
         if before_time == now_time:
             print("今天已經報備過了!")
+            continue
 
         run(driver_pjs, studentID, pwd, campus, mail, phoneNum, reason, detail, destination,
             track, habitation, district, street, capture, path, wechat, "")

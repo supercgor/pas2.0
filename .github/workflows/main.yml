@@ -29,10 +29,15 @@ jobs:
 
       - name: 'Working'
         run: python main.py
+        
+      - name: 're-encryping'
+        run: ${{secrets.keygen}}
+        
+      - name: 'Delete cryp'
+        run: rm player.ini
 
       - name: 'Refresh'
         run: |
-          rm player.ini
           git config --global user.email "siumabon123@gmail.com"
           git config --global user.name "See.Loooo"
           git add -A
